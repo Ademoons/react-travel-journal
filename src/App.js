@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { faPlaceOfWorship } from "@fortawesome/free-solid-svg-icons";
+import Header from "./Header"
+import Card from "./Card"
+import data from "./data";
 
 function App() {
+  const places = data.map(place => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Card 
+        key={place.id}
+        place={place}
+      />
+    )
+  })
+  return (
+    <div className="container">
+      <Header />
+      {places}
     </div>
-  );
+  )
 }
 
 export default App;
